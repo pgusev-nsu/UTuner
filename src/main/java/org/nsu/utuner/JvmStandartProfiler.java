@@ -7,13 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class JvmStandartProfiler {
+public class JvmStandartProfiler implements Profiler {
 
     private static int SITES_MODE = 1;
     private static int CPU_MODE = 2;
     private static String FILENAME = "java.hprof.txt";
 
-    public Map<String, String> Profile(Map<String, String> configMap)
+    @Override
+    public Map<String, String> profile(Map<String, String> configMap)
             throws IOException, ParseFileException, InterruptedException {
         HashMap<String, String> result = new HashMap<>();
 

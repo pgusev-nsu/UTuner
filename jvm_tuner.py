@@ -26,6 +26,8 @@ argparser.add_argument('--jar', dest='jar', type=bool, default=False, help='for 
 
 class JVMTuner(MeasurementInterface):
 
+  min_time = -1;
+
   def __init__(self, *pargs, **kwargs):
     super(JVMTuner, self).__init__(program_name="programm_name", *pargs,
                                         **kwargs)
@@ -85,6 +87,9 @@ class JVMTuner(MeasurementInterface):
     run_result = self.call_program(jvm_cmd)
     assert run_result['returncode'] == 0
 
+    if self.min_time < 0 or run_result['time'] < self.min_time:
+      self.min_time = run_result['time']      
+
     return Result(time=run_result['time'])
 
   def save_final_config(self, configuration):
@@ -92,6 +97,10 @@ class JVMTuner(MeasurementInterface):
     print "Optimal block size written to jvm_final_config.json:", configuration.data
     self.manipulator().save_to_file(configuration.data,
                                     'jvm_final_config.json')
+
+    time_file = open("time.txt", "w")
+    time_file.write(str(self.min_time))
+    time_file.close()
 
 
 if __name__ == '__main__':

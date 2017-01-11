@@ -12,8 +12,9 @@ public class Adapter {
     private static final String command = "jvm_tuner.py";
     private static final String openTunerOutput = "jvm_final_config.json";
 
-    public static Map<String, String> optimize(Map<String, String> parameters, String program, int stopTime) throws AdapterException {
-        ProcessBuilder processBuilder = build(program, stopTime);
+    public static Map<String, String> optimize(Map<String, String> parameters, String program, String[] params, int stopTime)
+            throws AdapterException {
+        ProcessBuilder processBuilder = build(program, params, stopTime);
 
         processBuilder.redirectErrorStream(true);
         processBuilder.redirectOutput();
@@ -31,7 +32,7 @@ public class Adapter {
         return parametersMap;
     }
 
-    private static ProcessBuilder build(String program, int stopTime){
+    private static ProcessBuilder build(String program, String[] params, int stopTime){
         List<String> commands = new LinkedList<>();
         commands.add("python");
         commands.add(command);

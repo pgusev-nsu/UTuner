@@ -1,5 +1,6 @@
 package org.nsu.utuner;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -10,13 +11,10 @@ import java.util.Set;
 import static java.lang.ClassLoader.getSystemClassLoader;
 
 public class Parser {
-    private static String[] correctModes = {"AI", "Opt", "Prof"};
+    private static String[] correctModes = {"AI", "OPT", "PROF"};
 
     public static Map<String, String> parse(String filename) throws IOException, ParseFileException {
-        try (InputStream in = getSystemClassLoader().getResourceAsStream(filename)) {
-            if(in == null){
-                throw new ParseFileException("Unable to open configuration file");
-            }
+        try (InputStream in = new FileInputStream(filename)) {
             return parseStream(in);
         }
     }
@@ -46,7 +44,7 @@ public class Parser {
         }
 
         for(String m : correctModes){
-            if(mode.equals(m)){
+            if(mode.toUpperCase().equals(m)){
                 return;
             }
         }

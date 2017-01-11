@@ -5,6 +5,6 @@ import java.util.Map;
 
 
 public interface Profiler {
-    public Map<String, String> Profile(Map<String, String> configMap) throws IOException, ParseFileException,
+    public Map<String, String> profile(Map<String, String> configMap) throws IOException, ParseFileException,
             InterruptedException;
 }
