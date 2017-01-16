@@ -1,36 +1,37 @@
 # UTuner
-UTuner предназначен для использования разработчиками Java-приложений с целью поиска хороших настроек JVM, существенно улучшающих производительность разрабатываемых и используемых приложений и исследователей производительности JVM. UTuner существенно упростит процесс поиска оптимальных параметров JVM для каждого конкретного приложения, позволит ускорить сами приложения, а также поможет в исследовании влияния параметров JVM на само приложение.
+UTuner It intended for use by developers of Java-based applications in order to find a good JVM settings, greatly improving the performance of applications developed and used by researchers of JVM performance. UTuner significantly simplify the process of finding the optimal parameters of JVM for each particular application, to speed up the applications themselves, as well as help in the study of the impact of JVM parameters on the application itself.
 
-Использование:
+Usage:
 ```bash
 utuner --OPT params_file TESTPerfomanceGC.jar
 ```
-Структура файла параметров:
+Stucture of parameters file:
 ```text
 Mode=Prof
 Param1=Value1
 Param2=Value2
 Param3=Value3
 ```
-Параметры, использующиеся для оптимизации:
+List of parameters used for optimization:
 ```text
 Xmx
 SurvivorRatio
 MaxTenuringThreshold
 TargetSurvivorRatio
 ```
+Also, more other optimization parameters can be easily added to the UTuner when needed.
 
-Параметры:
-Оптимизация:
+Parameters description:
+Optimization:
 ```bash
 --OPT params_file test_program.jar
 ```
-Профилирование
+Profiling:
 ```bash
 --PROF params_file test_program.jar
 ```
 
-Полученные результаты на тесте TESTPerfomanceGC.jar:
+Results we got on test "TESTPerfomanceGC.jar":
 ```bash
 utuner --OPT params_file.txt TESTPerfomanceGC.jar
 ```
