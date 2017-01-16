@@ -1,1 +1,4 @@
-{"Xmx": {"max": 1000000000, "min": 10000000}}
+{"Xmx": {"max": 1000000000, "min": 10000000},
+ "SurvivorRatio": {"max": 128, "min": 0},
+ "MaxTenuringThreshold": {"max": 15, "min": 0},
+ "TargetSurvivorRatio": {"max": 100, "min": 0}}
