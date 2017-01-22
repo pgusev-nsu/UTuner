@@ -3,7 +3,7 @@ UTuner It intended for use by developers of Java-based applications in order to 
 
 Usage:
 ```bash
-utuner --OPT params_file TESTPerfomanceGC.jar
+java -jar utuner-1.0.jar --OPT file.txt TESTPerfomanceGC.jar
 ```
 Stucture of parameters file:
 ```text
@@ -33,7 +33,7 @@ Profiling:
 
 Results we got on test "TESTPerfomanceGC.jar":
 ```bash
-utuner --OPT params_file.txt TESTPerfomanceGC.jar
+java -jar utuner-1.0.jar --OPT params_file.txt TESTPerfomanceGC.jar
 ```
 
 Performance increase: 27.77 %
